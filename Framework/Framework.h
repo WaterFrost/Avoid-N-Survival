@@ -16,10 +16,13 @@
 #include <unordered_map>
 #include <assert.h>
 #include <random>
+#include <functional>
 
 using namespace std;
 
 //DirectX
+#include <DirectXTex/DirectXTex.h>
+#pragma comment(lib,"DirectXTex/DirectXTex/lib")
 #include <d3dcompiler.h>
 #include <d3d11.h>
 #include <D3DX10math.h>
@@ -75,12 +78,15 @@ typedef UINT		uint;
 #include "Renders/IA/VertexBuffer.h"
 #include "Renders/IA/IndexBuffer.h"
 #include "Renders/IA/InputLayout.h"
+#include "Renders/States.h"
 
 #include "Renders/Shaders/VertexShader.h"
 #include "Renders/Shaders/PixelShader.h"
 
 #include "Utilities/DirectHelper.h"
 #include "Utilities/BoundingBox.h"
+#include "Utilities/String.h"
+#include "Utilities/Path.h"
 
 #define WinMaxWidth 1280
 #define WinMaxHeight 720

@@ -21,6 +21,12 @@
     <ClCompile Include="Utilities\BoundingBox.cpp" />
     <ClCompile Include="Utilities\Random.cpp" />
     <ClCompile Include="Geomatries\ShadedTexture.cpp" />
+    <ClCompile Include="Geomatries\AnimationRect.cpp" />
+    <ClCompile Include="Utilities\Animator.cpp" />
+    <ClCompile Include="Utilities\Path.cpp" />
+    <ClCompile Include="Utilities\String.cpp" />
+    <ClCompile Include="Renders\States.cpp" />
+    <ClCompile Include="Renders\Resources\Texture2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Systems\Graphics.h" />
@@ -47,5 +53,11 @@
     <ClInclude Include="Utilities\BoundingBox.h" />
     <ClInclude Include="Utilities\Random.h" />
     <ClInclude Include="Geomatries\ShadedTexture.h" />
+    <ClInclude Include="Geomatries\AnimationRect.h" />
+    <ClInclude Include="Utilities\Animator.h" />
+    <ClInclude Include="Utilities\Path.h" />
+    <ClInclude Include="Utilities\String.h" />
+    <ClInclude Include="Renders\States.h" />
+    <ClInclude Include="Renders\Resources\Texture2D.h" />
   </ItemGroup>
 </Project>
