@@ -148,22 +148,28 @@
   <ItemGroup>
     <ClInclude Include="Demos\00_RectDemo.h" />
     <ClInclude Include="Demos\01_TextureDemo.h" />
-    <ClInclude Include="Demos\02-1_ShootingGame.h" />
+    <ClInclude Include="Demos\Avoid_N_Surviver.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Demos\02_CollisionDemo.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Demos\03_ShadedDemo.h" />
+    <ClInclude Include="Demos\04_AnimDemo.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demos\00_RectDemo.cpp" />
     <ClCompile Include="Demos\01_TextureDemo.cpp" />
-    <ClCompile Include="Demos\02-1_ShootingGame.cpp" />
+    <ClCompile Include="Demos\Avoid_N_Surviver.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Demos\02_CollisionDemo.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Demos\03_ShadedDemo.cpp" />
+    <ClCompile Include="Demos\04_AnimDemo.cpp" />
     <ClCompile Include="Program.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

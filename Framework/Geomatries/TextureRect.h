@@ -19,7 +19,7 @@ public:
     void SetPosition(Vector3 newPos) { this->position = newPos; }
 
 
-private:
+protected:
     vector<VertexTexture> vertices;
     VertexBuffer* vb = nullptr;
 
@@ -42,4 +42,6 @@ private:
 
     ID3D11ShaderResourceView* srv = nullptr;
     ID3D11RasterizerState* rs = nullptr;
+
+    D3D11_MAPPED_SUBRESOURCE subResource;
 };

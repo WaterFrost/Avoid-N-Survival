@@ -66,11 +66,14 @@ Rect::Rect(Vector3 position, Vector3 size, float rotation)
 
     edge = new RectEdge();
     collision = new BoundingBox();
+    
+    ab = new AlphaBuffer();
 }
 
 Rect::~Rect()
 {
-   
+    SAFE_DELETE(ab);
+
     SAFE_DELETE(collision);
     SAFE_DELETE(edge);
     SAFE_DELETE(wb);
@@ -86,6 +89,14 @@ Rect::~Rect()
 
 void Rect::Update()
 {
+    if (Keyboard::Get()->Press(VK_F5))
+    {
+        ab->SetAlpha(ab->GetAlpha() + 0.01f);
+    }
+    if (Keyboard::Get()->Press(VK_F6))
+    {
+        ab->SetAlpha(ab->GetAlpha() - 0.01f);
+    }
     UpdateWorld();
     collision->UpdataCollisionData(world, verticesPosition);
    
@@ -102,7 +113,7 @@ void Rect::Render()
     wb->SetVSBuffer(0);
 
     ps->SetShader();
-
+    ab->SetPSBuffer(0);
     DC->DrawIndexed(ib->GetCount(), 0, 0);
 }
 

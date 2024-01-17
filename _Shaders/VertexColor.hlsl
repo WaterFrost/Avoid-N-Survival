@@ -42,9 +42,17 @@ PixelInput VS(VertexInput input)
 	return output;
 }
 
+cbuffer AlphaBuffer : register(b0)
+{
+    float alpha;
+};
+
 float4 PS(PixelInput input)	: SV_Target
 {
-	return input.color;
+    float4 color = input.color;
+    color.a = alpha;
+	
+	return color;
 }
 
 /*

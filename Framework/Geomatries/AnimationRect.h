@@ -11,8 +11,6 @@ public:
 	void Update();
 	void Render();
 
-	virtual void Move() override;
-
 private:
 	class Animator* animator = nullptr;
 

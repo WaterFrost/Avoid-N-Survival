@@ -25,7 +25,7 @@ void Texture2D::ReadPixel(ID3D11Texture2D* texture, vector<Color>* pixels)
 	texture->GetDesc(&srcDesc);		// 텍스처의 정보 복사
 
 	D3D11_TEXTURE2D_DESC destDesc;	// 텍스처 정보의 복사본
-	ZeroMemory(destDesc, );
+	ZeroMemory(&destDesc, sizeof(D3D11_TEXTURE2D_DESC));
 
 	// 복사할 텍스처 desc 설정
 	destDesc.Usage = D3D11_USAGE_STAGING;				// 사용 방식 설정
@@ -139,7 +139,11 @@ void Textures::Load(Texture2D* texture)
 
 	// 텍스처가 이미 존재한다면
 	if (bExist == true)
+	{
 		texture->srv = exist.srv;	// texture객체 srv 속성에 exist 구조체의 srv 속성을 할당
+
+		texture->metaData = metaData;
+	}
 	// 존재하지 않는다면
 	else
 	{

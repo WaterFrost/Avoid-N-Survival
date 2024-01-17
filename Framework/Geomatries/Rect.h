@@ -1,5 +1,24 @@
 #pragma once
 
+class AlphaBuffer : public ShaderBuffer
+{
+public:
+    AlphaBuffer()
+        :ShaderBuffer(&data, sizeof(Data))
+    {
+        data.alpha = 1;
+    }
+
+    float GetAlpha() { return data.alpha; }
+    void SetAlpha(float alpha) { data.alpha = alpha; }
+    struct Data
+    {
+        float alpha;
+        Vector3 temp;
+    };
+private:
+    Data data;
+};
 class Rect
 {
 public:
@@ -59,4 +78,6 @@ private:
     Vector3 verticesPosition[4];
     bool moveD = false;
     bool moveR = false;
+
+    AlphaBuffer* ab = nullptr;
 };

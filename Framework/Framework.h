@@ -22,7 +22,7 @@ using namespace std;
 
 //DirectX
 #include <DirectXTex/DirectXTex.h>
-#pragma comment(lib,"DirectXTex/DirectXTex/lib")
+#pragma comment(lib,"DirectXTex/DirectXTex.lib")
 #include <d3dcompiler.h>
 #include <d3d11.h>
 #include <D3DX10math.h>
@@ -74,6 +74,7 @@ typedef UINT		uint;
 #include "Renders/Resources/VertexType.h"
 #include "Renders/Resources/ShaderBuffer.h"
 #include "Renders/Resources/GlobalBuffer.h"
+#include "Renders/Resources/Texture2D.h"
 
 #include "Renders/IA/VertexBuffer.h"
 #include "Renders/IA/IndexBuffer.h"

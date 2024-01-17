@@ -6,11 +6,14 @@
 #include "Demos/00_RectDemo.h"
 #include "Demos/01_TextureDemo.h"
 //#include "Demos/02_CollisionDemo.h"
-#include "Demos/02-1_ShootingGame.h"
 #include "Demos/03_ShadedDemo.h"
+#include "Demos/04_AnimDemo.h"
+#include "Demos/Avoid_N_Surviver.h"
 
 void Program::Init()
 {
+	States::Create();
+
 	// Create Buffer
 	{
 		vpb = new VPBuffer();
@@ -48,10 +51,13 @@ void Program::Init()
 
 //	Push(new RectDemo);
 //	Push(new TextureDemo);
+// 
 //	Push(new CollisionDemo);
-
-	Push(new ShootingGame);
+//	Push(new ShootingGame);
+// 
 //	Push(new ShadedDemo);
+	Push(new ANS);
+//	Push(new AnimDemo);
 }
 
 void Program::Destroy()

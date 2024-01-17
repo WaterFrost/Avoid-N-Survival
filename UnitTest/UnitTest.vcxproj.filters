@@ -6,15 +6,17 @@
     <ClInclude Include="Demos\00_RectDemo.h" />
     <ClInclude Include="Demos\01_TextureDemo.h" />
     <ClInclude Include="Demos\02_CollisionDemo.h" />
-    <ClInclude Include="Demos\02-1_ShootingGame.h" />
+    <ClInclude Include="Demos\Avoid_N_Surviver.h" />
     <ClInclude Include="Demos\03_ShadedDemo.h" />
+    <ClInclude Include="Demos\04_AnimDemo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="Demos\00_RectDemo.cpp" />
     <ClCompile Include="Demos\01_TextureDemo.cpp" />
     <ClCompile Include="Demos\02_CollisionDemo.cpp" />
-    <ClCompile Include="Demos\02-1_ShootingGame.cpp" />
+    <ClCompile Include="Demos\Avoid_N_Surviver.cpp" />
     <ClCompile Include="Demos\03_ShadedDemo.cpp" />
+    <ClCompile Include="Demos\04_AnimDemo.cpp" />
   </ItemGroup>
 </Project>

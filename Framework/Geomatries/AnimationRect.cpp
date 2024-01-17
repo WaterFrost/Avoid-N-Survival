@@ -6,16 +6,20 @@
 AnimationRect::AnimationRect(Vector3 position, Vector3 size)
 	: TextureRect(position, size, .0f)
 {
-	SetShader(ShaderPath + L"Animation.hlsl");
+	SetShader(ShaderPath + L"VertexTexture.hlsl");
 
 	animator = new Animator();
-	Texture2D* srcTex = new Texture2D(TexturePath + L"player.png");
-	AnimationClip* RunR = new AnimationClip(L"RunR", srcTex, 10, Values::ZeroVec2, { srcTex->GetWidth(), srcTex->GetHeight() * 0.5f });
-	AnimationClip* RunL = new AnimationClip(L"RunL", srcTex, 10, { 0, srcTex->GetHeight() * 0.5f }, { srcTex->GetWidth(), srcTex->GetHeight() }, true);
+	Texture2D* srcTex = new Texture2D(TexturePath + L"Character.png");
+	AnimationClip* RunD = new AnimationClip(L"RunD", srcTex, 4, Values::ZeroVec2, { srcTex->GetWidth(), srcTex->GetHeight() * 0.25f});
+	AnimationClip* RunU = new AnimationClip(L"RunU", srcTex, 4, { 0, srcTex->GetHeight() * 0.25f }, { srcTex->GetWidth(), srcTex->GetHeight()*0.5f }, true);
+	AnimationClip* RunL = new AnimationClip(L"RunL", srcTex, 4, { 0, srcTex->GetHeight() * 0.5f }, { srcTex->GetWidth(), srcTex->GetHeight() * 0.75f }, true);
+	AnimationClip* RunR = new AnimationClip(L"RunR", srcTex, 4, { 0, srcTex->GetHeight() * 0.75f }, { srcTex->GetWidth(), srcTex->GetHeight() }, true);
 
 	// 애니메이션 저장
 	animator->AddAnimClip(RunR);
 	animator->AddAnimClip(RunL);
+	animator->AddAnimClip(RunU);
+	animator->AddAnimClip(RunD);
 	animator->SetCurrentAnimClip(L"RunL");
 
 	SAFE_DELETE(srcTex);
@@ -52,7 +56,23 @@ void AnimationRect::Update()
 {
 	animator->Update();
 
-	MapVertexBuffer();
+	if (Keyboard::Get()->Press('D'))
+	{
+		animator->SetCurrentAnimClip(L"RunR");
+	}
+	else if (Keyboard::Get()->Press('A'))
+	{
+		animator->SetCurrentAnimClip(L"RunL");
+	}
+	else if (Keyboard::Get()->Press('W'))
+	{
+		animator->SetCurrentAnimClip(L"RunU");
+	}
+	else if (Keyboard::Get()->Press('S'))
+	{
+		animator->SetCurrentAnimClip(L"RunD");
+	}
+	DC->Map(vb->GetResource(), 0, D3D11_MAP_WRITE_DISCARD, 0, &subResource); 
 	{
 		// uv 좌표로 봤을 때 3번이 0,0지점
 		vertices[0].uv.x = animator->GetCurrentFrame().x;
@@ -63,12 +83,12 @@ void AnimationRect::Update()
 
 		vertices[2].uv.x = animator->GetCurrentFrame().x + animator->GetTexelFrameSize().x;
 		vertices[2].uv.y = animator->GetCurrentFrame().y + animator->GetTexelFrameSize().y;
-
+		
 		vertices[3].uv.x = animator->GetCurrentFrame().x;
 		vertices[3].uv.y = animator->GetCurrentFrame().y;
 	}
-	UnmapVertexBuffer();
-
+	memcpy(subResource.pData, vertices.data(), sizeof(vertices[0]) * vertices.size());
+	DC->Unmap(vb->GetResource(), 0);
 	__super::Update();
 }
 
@@ -83,19 +103,4 @@ void AnimationRect::Render()
 
 	//DC->PSSetSamplers(0, 1, &point[0]);
 	//DC->OMSetBlendState(bPoint[0], nullptr, (UINT)0xFFFFFFFF);
-}
-
-void AnimationRect::Move()
-{
-	if (Keyboard::Get()->Press('A'))
-	{
-		position.x -= 100 * Time::Delta();
-		animator->SetCurrentAnimClip(L"RunL");
-	}
-
-	else if (Keyboard::Get()->Press('D'))
-	{
-		position.x += 100 * Time::Delta();
-		animator->SetCurrentAnimClip(L"RunR");
-	}
 }
