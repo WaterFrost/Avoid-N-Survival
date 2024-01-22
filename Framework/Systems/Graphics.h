@@ -44,7 +44,7 @@ private:
 	ID3D11RenderTargetView* rtv = nullptr;
 	D3D11_VIEWPORT viewport;
 //	D3DXCOLOR clearColor = 0xff555566;
-	D3DXCOLOR clearColor = D3DXCOLOR(1, 1, 1, 0.2f);
+	D3DXCOLOR clearColor = D3DXCOLOR(0, 0, 0, 0.2f);
 	UINT numerator = 0;
 	UINT denominator = 1;
 

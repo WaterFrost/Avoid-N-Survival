@@ -27,6 +27,7 @@
     <ClCompile Include="Utilities\String.cpp" />
     <ClCompile Include="Renders\States.cpp" />
     <ClCompile Include="Renders\Resources\Texture2D.cpp" />
+    <ClCompile Include="ANS\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Systems\Graphics.h" />
@@ -59,5 +60,6 @@
     <ClInclude Include="Utilities\String.h" />
     <ClInclude Include="Renders\States.h" />
     <ClInclude Include="Renders\Resources\Texture2D.h" />
+    <ClInclude Include="ANS\Player.h" />
   </ItemGroup>
 </Project>

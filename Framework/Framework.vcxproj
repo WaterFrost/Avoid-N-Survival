@@ -153,6 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ANS\Player.cpp" />
     <ClCompile Include="Framework.cpp" />
     <ClCompile Include="Geomatries\AnimationRect.cpp" />
     <ClCompile Include="Geomatries\Rect.cpp" />
@@ -181,6 +182,7 @@
     <ClCompile Include="Utilities\String.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ANS\Player.h" />
     <ClInclude Include="Framework.h" />
     <ClInclude Include="Geomatries\AnimationRect.h" />
     <ClInclude Include="Geomatries\Rect.h" />

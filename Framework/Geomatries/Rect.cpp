@@ -91,11 +91,13 @@ void Rect::Update()
 {
     if (Keyboard::Get()->Press(VK_F5))
     {
-        ab->SetAlpha(ab->GetAlpha() + 0.01f);
+        if(ab->GetAlpha() < 1.0f)
+            ab->SetAlpha(ab->GetAlpha() + 0.01f);
     }
     if (Keyboard::Get()->Press(VK_F6))
     {
-        ab->SetAlpha(ab->GetAlpha() - 0.01f);
+        if (ab->GetAlpha() > 0.0f)
+            ab->SetAlpha(ab->GetAlpha() - 0.01f);
     }
     UpdateWorld();
     collision->UpdataCollisionData(world, verticesPosition);

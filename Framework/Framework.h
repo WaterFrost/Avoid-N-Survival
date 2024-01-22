@@ -89,6 +89,11 @@ typedef UINT		uint;
 #include "Utilities/String.h"
 #include "Utilities/Path.h"
 
+#include "Geomatries/AnimationRect.h"
+#include "Geomatries/Rect.h"
+#include "Geomatries/ShadedTexture.h"
+#include "Geomatries/TextureRect.h"
+
 #define WinMaxWidth 1280
 #define WinMaxHeight 720
 

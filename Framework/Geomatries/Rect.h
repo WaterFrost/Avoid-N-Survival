@@ -33,11 +33,15 @@ public:
     void SetPosition(Vector3 position) { this->position = position; }
     void Setsize(Vector3 size) { this->size = size; }
     void SetRotation(float rotation) { this->rotation = rotation; }
+    void SetAlpha(float alpha) { ab->SetAlpha(alpha); }
+
     void Move();
     
     Vector3 GetPosition() { return position; }
     Vector3 Getsize() { return size; }
     float GetRotation() { return rotation; }
+    float Getalpha() { return ab->GetAlpha(); }
+
     void UpdateColor();
     string MakeLabel(string preFix);
 

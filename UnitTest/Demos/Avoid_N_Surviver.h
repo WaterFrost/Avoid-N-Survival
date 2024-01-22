@@ -1,5 +1,8 @@
 #pragma once
-#pragma once
+
+#include "Geomatries/Rect.h"
+#include "ANS/Player.h"
+
 class ANS : public IObject
 {
 	// IObject을(를) 통해 상속됨
@@ -34,7 +37,7 @@ private:
 	float PatternTime = 0.0f;
 
 	// 패턴 순서
-	int m_EnecmyPatternNumber = 0;
+	int m_EnemyPatternNumber = 0;
 	// 점수 변수
 	int score = 0;
 
@@ -46,11 +49,13 @@ private:
 	bool m_EnemyPattern = false;
 	bool m_RandomPattern = false;
 	bool Once = false;
+	bool Isvisible = false;
 
-	class Rect* Player;
+	class Player* player;
 	class Rect* Ground;
 	vector<class Rect*> Platform;
 	vector<class Rect*> SquareEnemy;
 	vector<class Rect*> VerticalEnemy;
 	vector<class Rect*> HorizontalEnemy;
+	AlphaBuffer* ab = nullptr;
 };
